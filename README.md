@@ -1,4 +1,3 @@
-# Daily UI #008 - 404 Page
+# Moloko's Testing Nginx Docker Container
 
-A Pen created on CodePen.io. Original URL: [https://codepen.io/rafaelavlucas/pen/NWWQNjZ](https://codepen.io/rafaelavlucas/pen/NWWQNjZ).
-
+A simple web page hosted via the NGINX web server container. The purpose of this container is for testing on cloud infrastructure designs. 
