@@ -162,7 +162,7 @@ body {
   padding: 0;
   height: auto;
   font-family: "Barlow", sans-serif;
-  background: #695681;
+  background: #0703d4;
 }
 
 .logo {
@@ -189,7 +189,7 @@ body {
 
 nav .menu {
   width: 100%;
-  height: 80px;
+  height: 120px;
   position: absolute;
   display: flex;
   align-items: center;
@@ -476,7 +476,7 @@ nav .menu .menu_icon:hover .icon:after {
   color: white;
 }
 .wrapper .container .p404 {
-  font-size: 200px;
+  font-size: 50px;
   font-weight: 700;
   letter-spacing: 4px;
   color: white;
