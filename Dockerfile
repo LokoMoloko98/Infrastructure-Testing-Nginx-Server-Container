@@ -14,11 +14,13 @@ WORKDIR /var/www/html
 # Install Git
 RUN apt-get install -y git
 
+# Install vim
+RUN apt-get install -y vim
+
 # Set the build argument directive
 ARG PERSONAL_ACCESS_TOKEN
 ARG GITHUB_USERNAME
 ARG REPOSITORY_NAME
-ARG WEB_FILE_NAME
 
 # Use the build argument to set environment variables 
 ENV PERSONAL_ACCESS_TOKEN=$PERSONAL_ACCESS_TOKEN
