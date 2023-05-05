@@ -39,10 +39,14 @@ RUN git clone https://$PERSONAL_ACCESS_TOKEN@github.com/$GITHUB_USERNAME/$REPOSI
 # Copy the web files into the HTML directory
 RUN cp -av $REPOSITORY_NAME/. /var/www/html
 
+RUN chmod +x insertip.sh
+
+RUN ./insertip.sh
+
 # Remove the repository we cloned
 RUN rm -rf $REPOSITORY_NAME
 
-# Expose the default Apache and MySQL ports
+# Expose the default Nginx ports
 EXPOSE 80
 
 # Start Nginx
