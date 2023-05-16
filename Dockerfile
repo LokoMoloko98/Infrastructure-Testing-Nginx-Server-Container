@@ -4,8 +4,8 @@ FROM ubuntu
 # Update all installed packages to thier latest versions
 RUN apt-get update
 
-# Install the unzip package, which we will use it to extract the web files from the zip folder
-RUN apt-get install nginx -y
+# Install the nginx server, which we will use to serve the test web files
+RUN apt-get install -y nginx
 
 
 # Change directory to the html directory
@@ -36,6 +36,7 @@ RUN cp -av $REPOSITORY_NAME/. /var/www/html
 
 RUN chmod +x insertip.sh
 
+#Display the host IP on index page
 RUN ./insertip.sh
 
 # Remove the repository we cloned
