@@ -5,7 +5,7 @@ FROM ubuntu
 RUN apt-get update
 
 # Install the nginx server, which we will use to serve the test web files
-RUN apt-get install -y nginx
+RUN apt-get install nginx -y
 
 
 # Change directory to the html directory
