@@ -12,10 +12,10 @@ RUN apt-get install nginx -y
 WORKDIR /var/www/html
 
 # Install Git
-RUN apt-get install -y git
+RUN apt-get install git -y --fix-missing
 
 # Install vim
-RUN apt-get install -y vim
+RUN apt-get install vim -y --fix-missing
 
 # Set the build argument directive
 ARG PERSONAL_ACCESS_TOKEN
