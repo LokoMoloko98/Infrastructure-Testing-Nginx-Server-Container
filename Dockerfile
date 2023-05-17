@@ -5,7 +5,7 @@ FROM ubuntu
 RUN apt-get update
 
 # Install the nginx server, which we will use to serve the test web files
-RUN apt-get install nginx -y
+RUN apt-get install nginx -y --fix-missing
 
 
 # Change directory to the html directory
@@ -29,7 +29,7 @@ ENV REPOSITORY_NAME=$REPOSITORY_NAME
 
 
 # Clone the GitHub repository
-RUN git clone -b host-indication https://$PERSONAL_ACCESS_TOKEN@github.com/$GITHUB_USERNAME/$REPOSITORY_NAME.git
+RUN git clone -b LokoMoloko98-ec2-test https://$PERSONAL_ACCESS_TOKEN@github.com/$GITHUB_USERNAME/$REPOSITORY_NAME.git
 
 # Copy the web files into the HTML directory
 RUN cp -av $REPOSITORY_NAME/. /var/www/html
