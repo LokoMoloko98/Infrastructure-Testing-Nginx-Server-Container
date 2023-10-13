@@ -7,39 +7,20 @@ RUN apt-get update
 # Install the unzip package, which we will use it to extract the web files from the zip folder
 RUN apt-get install nginx -y
 
-
 # Change directory to the html directory
 WORKDIR /var/www/html
 
 # Install Git
-RUN apt-get install -y git
-
-# Install vim
-RUN apt-get install -y vim
-
-# Set the build argument directive
-ARG PERSONAL_ACCESS_TOKEN
-ARG GITHUB_USERNAME
-ARG REPOSITORY_NAME
-
-# Use the build argument to set environment variables 
-ENV PERSONAL_ACCESS_TOKEN=$PERSONAL_ACCESS_TOKEN
-ENV GITHUB_USERNAME=$GITHUB_USERNAME
-ENV REPOSITORY_NAME=$REPOSITORY_NAME
-
-
-# Clone the GitHub repository
-RUN git clone -b host-indication https://$PERSONAL_ACCESS_TOKEN@github.com/$GITHUB_USERNAME/$REPOSITORY_NAME.git
+RUN apt-get install -y git 
 
 # Copy the web files into the HTML directory
-RUN cp -av $REPOSITORY_NAME/. /var/www/html
+COPY index.html /var/www/html
+COPY script.js /var/www/html
+COPY style.css /var/www/html
+COPY images/'Moloko_logo.png' /var/www/html
 
-RUN chmod +x insertip.sh
-
-RUN ./insertip.sh
-
-# Remove the repository we cloned
-RUN rm -rf $REPOSITORY_NAME
+#Replace line 58 with correct line
+RUN sed -i '57i <p class="p404" data-depth="0.50">The container is successfully deployed at host $(hostname -f)</p>' /var/www/html/index.html
 
 # Expose the default Nginx ports
 EXPOSE 80
